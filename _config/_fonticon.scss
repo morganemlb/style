@@ -1,0 +1,230 @@
+////////////////// FONTICON //////////////////
+$fonticon  : 'fonticon';
+$token     : 'ysr8mc';
+
+$fonticon-path  : '../font/#{$fonticon}/#{$fonticon}';
+
+// FONTICON
+@font-face {
+  font-family: $fonticon;
+  src:  url('#{$fonticon-path}.eot?#{$token}');
+  src:  url('#{$fonticon-path}.eot?#{$token}#iefix') format('embedded-opentype'),
+        url('#{$fonticon-path}.ttf?#{$token}') format('truetype'),
+        url('#{$fonticon-path}.woff?#{$token}') format('woff'),
+        url('#{$fonticon-path}.svg?#{$token}##{$fonticon}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// fonticon.scss -- Icons custom for project
+// http://jaydenseric.com/blog/fun-with-sass-and-font-icons
+//  *
+//  * Set Icons custom with optionals position and style.
+//  *
+//  * @mixin
+//  * @section Fonts
+//  * @param $position Position of icon
+//  * @param $icon Name of icon
+//  *  The font weight to be used.
+//  * @example
+//  *  @include icon(before, contact);
+//  *  @include icon(after, arrow-right);
+//  *  @include icon(both, star);
+//  *  @include icon(before, contact) {
+//         margin-right: 20px;
+//     }
+// For adding font icons to elements using CSS pseudo-elements
+@mixin icon($position: before, $icon: false, $styles: true) {
+   @if $position == both{
+    $position: 'before, &:after';
+  }
+  // Either a :before or :after pseudo-element, or both, defaulting to :before
+  &:#{$position} {
+    @if $icon {
+      // A particular icon has been specified
+      content: "#{map-get($icons, $icon)}";
+    }
+    @if $styles {
+      // Supportive icon styles required
+      font-family: '#{$fonticon}' !important;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      font-size: inherit;
+      color: inherit;
+      /* Better Font Rendering =========== */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      /* Screenreaders should ignore that kind of elements =========== */
+      -webkit-alt: "";
+      speak: none;
+    }
+    // Include any extra rules supplied for the pseudo-element
+    @content;
+  }
+}
+////////////////// ICONS //////////////////
+$icons: ( icon-home: "\e900",
+ icon-reporting: "\e901",
+ icon-performance: "\e902",
+ icon-arrow: "\e903",
+ icon-chevron: "\e904",
+ icon-paper-plane: "\e905",
+ icon-tag: "\e906",
+ icon-backtotop: "\e907",
+ icon-cross: "\e908",
+ icon-pen: "\e909",
+ icon-info: "\e90a",
+ icon-search: "\e90b",
+ icon-document: "\e90c",
+ icon-road-sign: "\e90d",
+ icon-add: "\e90e",
+ icon-graph: "\e90f",
+ icon-zoom: "\e910",
+ icon-toggle: "\e911",
+ icon-calendar: "\e912",
+ icon-search-doc: "\e913",
+ icon-parameters: "\e914",
+ icon-user-parameters: "\e915",
+ icon-menu: "\e916",
+ icon-localisation: "\e917",
+ icon-add-picture: "\e918"
+);
+
+ ////////////////// CLASSES //////////////////
+
+[class^="icon-"] {
+  &:after,
+  &:before {
+    display: block;
+  }
+}
+
+.icon-home {
+  @include icon(before, icon-home);
+}
+
+.icon-reporting {
+  @include icon(before, icon-reporting);
+}
+
+.icon-performance {
+  @include icon(before, icon-performance);
+}
+
+.icon-arrow {
+  @include icon(before, icon-arrow);
+}
+
+.icon-chevron-up {
+  @include icon(before, icon-chevron);
+  position: relative;
+  top: -.1rem;
+  transform: rotate(-90deg);
+}
+
+.icon-chevron-right {
+  @include icon(before, icon-chevron);
+}
+
+.icon-chevron-bottom {
+  @include icon(before, icon-chevron);
+  position: relative;
+  top: 0.5rem;
+  transform: rotate(90deg);
+}
+
+.icon-chevron-left {
+  @include icon(before, icon-chevron);
+  position: relative;
+  left: -.5rem;
+  transform: rotate(180deg);
+}
+
+.icon-paper-plane {
+  @include icon(before, icon-paper-plane);
+}
+
+.icon-tag {
+  @include icon(before, icon-tag);
+}
+
+.icon-backtotop {
+  @include icon(before, icon-backtotop);
+}
+
+.icon-cross {
+  @include icon(before, icon-cross);
+}
+
+.icon-pen {
+  @include icon(before, icon-pen);
+}
+
+.icon-info {
+  @include icon(before, icon-info);
+}
+
+.icon-search {
+  @include icon(before, icon-search);
+}
+
+.icon-document {
+  @include icon(before, icon-document);
+}
+
+.icon-road-sign {
+  @include icon(before, icon-road-sign);
+}
+
+.icon-add {
+  @include icon(before, icon-add);
+}
+
+.icon-graph {
+  @include icon(before, icon-graph);
+}
+
+.icon-zoom {
+  @include icon(before, icon-zoom);
+}
+
+.icon-toggle {
+  @include icon(before, icon-toggle);
+}
+
+.icon-calendar {
+  @include icon(before, icon-calendar);
+}
+
+.icon-search-doc {
+  @include icon(before, icon-search-doc);
+}
+
+.icon-parameters {
+  @include icon(before, icon-parameters);
+}
+
+.icon-user-parameters {
+  @include icon(before, icon-user-parameters);
+  position: relative;
+  top: 0.2rem;
+
+  &:before {
+    font-size: 1.5em;
+  }
+}
+
+.icon-menu {
+  @include icon(before, icon-menu);
+}
+
+.icon-localisation {
+  @include icon(before, icon-localisation);
+}
+
+.icon-add-picture {
+  @include icon(before, icon-add-picture);
+}

@@ -1,0 +1,125 @@
+////////////////// TITLES //////////////////
+
+//TITRES
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6,
+.title {
+  @include title;
+}
+
+h1,
+.h1,
+.size1 {
+  @include size1;
+}
+
+h2,
+.h2,
+.size2 {
+  @include size2;
+}
+
+h3,
+.h3,
+.size3 {
+  @include size3;
+}
+
+h4,
+.h4,
+.size4 {
+  @include size4;
+}
+
+h5,
+.h5,
+.size5 {
+  @include size5;
+}
+
+h6,
+.h6,
+.size6 {
+  @include size6;
+}
+
+
+// GENERAL STYLE
+hr
+{
+ border: 0;
+ height: 0;
+ border-top: 1px solid rgba(0, 0, 0, 0.1);
+ border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+em, i, .italic
+{
+ font-family: inherit;
+ font-style: italic;
+}
+strong, b, .bold
+{
+ font-family: inherit;
+ font-weight: 700;
+}
+
+
+// LINK STYLE
+a {
+	@include opacity;
+
+	&,
+	&:active,
+	&:focus,
+	&:hover,
+	&:link,
+	&:visited {
+		color: inherit;
+		text-decoration: none;
+	}
+}
+
+a[target='_blank'],
+a.blank { 
+    @include link-icone('\0000a0\279A'); // ➚ http://unicode-table.com/en/279A/
+}
+
+a[href^='mailto:'],
+a.mailto {
+    @include link-icone('\0000a0\2709'); // ✉ http://unicode-table.com/en/2709/
+}
+
+a[href$='.pdf'], 
+a[href$='.doc'],
+a.pdf, {
+    @include link-icone('\0000a0\21A7'); // ↧ http://unicode-table.com/en/21A7/
+}
+
+
+
+
+
+// PARAGRAPH
+p {
+	margin-bottom: 2rem;
+	line-height: 1.4em;
+
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+
+	a {
+		@include underline-animated;
+	}
+
+}
+
+.lead {
+	@include size2;
+	font-weight: 300;
+}
